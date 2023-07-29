@@ -9,8 +9,6 @@ import imagen2 from '../public/publicidadLandingPage/publicidad2.jpg'
 
 export default function Home({posts}) {
 
-  console.log(posts)
-
   return (
     <MainLayout title='EMIRAT PROPIEDADES'> 
       <Banner />

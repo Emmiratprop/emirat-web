@@ -13,7 +13,7 @@ const IconosSliderLanding = () => {
     <Grid container width='100%' direction={{xs:'column', sm: 'row'}}  justifyContent='space-around' alignItems='center' gap={2} >
 
       <GridIcon>
-       <Link href='/tienda/todos' passHref><LinkStyle><HomeIcon sx={{fontSize:'45px'}}/></LinkStyle></Link>
+       <Link href='/tienda/comprar' passHref><LinkStyle><HomeIcon sx={{fontSize:'45px'}}/></LinkStyle></Link>
        <TypographyStyle>INMUEBLES</TypographyStyle>
       </GridIcon>
 

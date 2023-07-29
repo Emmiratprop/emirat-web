@@ -3,8 +3,8 @@ const query = `
     queryInmueblesContents{
     id
     flatData{
-      nombreInmueble
-      estadoInmueble
+      nombre
+      estado
     }
    }
 

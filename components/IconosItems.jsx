@@ -8,36 +8,40 @@ import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined
 import { styled } from '@mui/material/styles';
 
 
-const IconosItems = ({ p }) => {
+const IconosItems = ({ banos, antiguedad, cochera, dormitorios, metros, pileta }) => {
+
+
   return (
     <>
 
       <StackItem>
-        <Icon><SuperscriptOutlinedIcon/></Icon><Typography variant="p">{p?.mt2}</Typography>
+        <Icon><SuperscriptOutlinedIcon/></Icon><Typography variant="p">{metros}</Typography>
       </StackItem>
 
       <StackItem>
-        <Icon><CalendarMonthOutlinedIcon/></Icon><Typography variant="p">{p?.antiguedad} Antiguedad</Typography>
+        <Icon><CalendarMonthOutlinedIcon/></Icon><Typography variant="p">{antiguedad} Antiguedad</Typography>
       </StackItem>
 
       <StackItem>
-        <Icon><ShowerOutlinedIcon/></Icon><Typography variant="p">{p?.baños} Baños</Typography>
+        <Icon><ShowerOutlinedIcon/></Icon><Typography variant="p">{banos} Baños</Typography>
       </StackItem>
 
       <StackItem>
-        <Icon><HotelOutlinedIcon/></Icon><Typography variant="p">{p?.dormitorios} Dormitorios</Typography>
+        <Icon><HotelOutlinedIcon/></Icon><Typography variant="p">{dormitorios} Dormitorios</Typography>
       </StackItem>
 
+      { cochera != 0 && 
       <StackItem>
-        <Icon><DirectionsCarOutlinedIcon/></Icon><Typography variant="p">{p?.cochera} Cocheras</Typography>
+        <Icon><DirectionsCarOutlinedIcon/></Icon><Typography variant="p">{cochera} Cocheras</Typography>
       </StackItem>
-      
-      { p?.pileta === true && 
-      <StackItem direction='row' alignItems='center'>
-        <Icon><PoolOutlinedIcon/></Icon><Typography variant="p">{p?.pileta} Pileta</Typography>
-      </StackItem >
       }
       
+      {/* { pileta === true && 
+      <StackItem>
+        <Icon><PoolOutlinedIcon/></Icon><Typography variant="p">{pileta} Pileta</Typography>
+      </StackItem >
+      }
+       */}
     </>
   )
 }

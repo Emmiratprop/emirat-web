@@ -9,34 +9,33 @@ import { styled } from '@mui/material/styles';
 
 
 
-const Carousell = ({ p, cantidadImagDesktop }) => {
+const Carousell = ({ id, imagenes, cantidadImagDesktop }) => {
 
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm')); 
-
-    const { imagen, id, direccion } = p
 
     const [selectedIndex, setSelectedIndex] = useState(0);
 
     const cantidadSegunResponsive = isSmallScreen? 1 : cantidadImagDesktop
 
 
-    const anterior = () => setSelectedIndex((selectedIndex - cantidadSegunResponsive + imagen.length) % imagen.length)
-    const siguiente = () => setSelectedIndex((selectedIndex + cantidadSegunResponsive) % imagen.length);
+    const anterior = () => setSelectedIndex((selectedIndex - cantidadSegunResponsive + imagenes.length) % imagenes.length)
+    const siguiente = () => setSelectedIndex((selectedIndex + cantidadSegunResponsive) % imagenes.length);
 
-    const slicedImagen = imagen?.slice(selectedIndex, selectedIndex + cantidadSegunResponsive);
+    const slicedImagen = imagenes?.slice(selectedIndex, selectedIndex + cantidadSegunResponsive);
+
 
     return (
 
-      <Grid container direction={{xs:'column', sm:'column'}} width='100%' height='100%' justifyContent='center' alignItems='center'>
+      <Grid container direction={{xs:'column', sm:'row'}} width='100%' height='100%' justifyContent='center' alignItems='center'>
 
         <IconButton onClick={anterior} color='primary'><KeyboardArrowLeft sx={{fontSize:'15px'}}/></IconButton>
 
-        <Grid container width={{xs:'80%', sm:'85%'}} height='100%' alignItems='center' justifyContent='center'>
+        <Grid container width='80%' height='100%' alignItems='center' justifyContent='center'>
         {slicedImagen?.map( (e, index) => ( 
-            <Grid item key={index} width='100%' height='100%' backgroundColor='white'>
-               <Link to={`/tienda/detalle/`}>
-                <img src={e} alt={e} style={{width:'100%', height:'100%', objectFit:'cover', objectPosition: 'center center'}} />
+            <Grid item width='100%' height='100%' backgroundColor='white' key={index}>
+               <Link href={`/detalle/${id}`} passHref>
+                <img src={e?.url} alt='imagen' style={{width:'100%', height:'100%', objectFit:'cover', objectPosition: 'center center'}} cursor='pointer' />
                </Link>
             </Grid>
         ))}

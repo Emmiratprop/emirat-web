@@ -1,5 +1,4 @@
 import { MainLayout } from '../../layout';
-import { useRouter } from 'next/router'
 import queryInmueble from '../../graphql/tienda.gql';
 import fetchAPI from '../../squidexConectData';
 import { BannerTienda, Inmueble, Ordenamientos, Paginado } from '../../components/tienda';
@@ -8,10 +7,8 @@ import { Grid } from '@mui/material';
 
 
 
-const Tienda = ({ posts }) => {
-
-  console.log(posts)
-
+const Tienda = ({ inmuebles }) => {
+  
   return (
     <MainLayout title='TIENDA'>
     <BannerTienda />
@@ -22,13 +19,13 @@ const Tienda = ({ posts }) => {
       </Grid>
 
       <Grid item xs={12} sm={8.5}>
-        <Grid container width='100%' alignItems='center' justifyContent={{ xs: "center", sm: "space-between" }} gap={{ xs: 3, sm: 0 }}>
+        {/* <Grid container width='100%' alignItems='center' justifyContent={{ xs: "center", sm: "space-between" }} gap={{ xs: 3, sm: 0 }}>
             <Ordenamientos />
             <Paginado />
-        </Grid>
+        </Grid> */}
 
         <Grid item mt="2rem">
-            <Inmueble />
+            <Inmueble total={inmuebles?.total} items={inmuebles?.items} />
         </Grid>
       </Grid>
 
@@ -57,12 +54,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({params}) {
 
-  const { slug } = params
   const data = await fetchAPI(queryInmueble)
 
   return {
     props: {
-      posts: data.queryInmueblesContentsWithTotal,
+      inmuebles: data.queryInmueblesContentsWithTotal,
     },
   };
 }

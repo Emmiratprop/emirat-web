@@ -3,21 +3,26 @@ const queryInmueble = `
     queryInmueblesContentsWithTotal(top:999){
         total
         items{
+          id
           flatData{
-            idInmueble
-            nombreInmueble
-            imagenesInmueble{
+            nombre
+            descipcion
+            imagenes{
               url
             }
-            precioInmueble
-            direccionInmueble
-            banosInmuebles
-            piletaInmuebles
-            cocheraInmuebles
-            metrosInmuebles
-            antiguedadInmueble
-            dormitoriosInmueble
-            
+            precio
+            moneda
+            fechaPublicacion
+            direccion
+            banos
+            pileta
+            cochera
+            metros
+            antiguedad
+            dormitorios
+            tipoTransaccionVenta
+            tipoTransaccionAlquiler
+            estado
           }
         }
       }
