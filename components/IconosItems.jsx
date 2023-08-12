@@ -30,18 +30,18 @@ const IconosItems = ({ banos, antiguedad, cochera, dormitorios, metros, pileta }
         <Icon><HotelOutlinedIcon/></Icon><Typography variant="p">{dormitorios} Dormitorios</Typography>
       </StackItem>
 
-      { cochera != 0 && 
+      { cochera !== 0 && 
       <StackItem>
         <Icon><DirectionsCarOutlinedIcon/></Icon><Typography variant="p">{cochera} Cocheras</Typography>
       </StackItem>
       }
       
-      {/* { pileta === true && 
+      { pileta === true && 
       <StackItem>
         <Icon><PoolOutlinedIcon/></Icon><Typography variant="p">{pileta} Pileta</Typography>
       </StackItem >
       }
-       */}
+      
     </>
   )
 }

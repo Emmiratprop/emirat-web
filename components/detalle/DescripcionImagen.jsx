@@ -14,7 +14,7 @@ const DescripcionImagen = ({ id, inmueble }) => {
     <>
       <Grid container direction='column' width='100%' mt={2} p={4} backgroundColor='white' gap={2} boxShadow='rgba(50, 50, 93, 0.25) 0px 2px 8px -3px'> 
         <Grid item width='max-content' pl={0.5} pr={0.5} border={`2px solid ${theme.palette.primary.main}`}>
-          <TypographyTransaccion>{inmueble?.tipoTransaccionInmuebleAlquiler? 'ALQUILER' : 'VENTA'}</TypographyTransaccion>
+          <TypographyTransaccion>{inmueble?.tipoTransaccionAlquiler? 'ALQUILER' : 'VENTA'}</TypographyTransaccion>
         </Grid>
         <Grid container direction='row' justifyContent='space-between' alignItems='center' borderLeft={`3px solid ${theme.palette.secondary.main}`}>
           <TypographyPrecio variant='h2' pl={2}>{inmueble?.precio}  {inmueble?.moneda}</TypographyPrecio>
@@ -27,7 +27,7 @@ const DescripcionImagen = ({ id, inmueble }) => {
 
       <Grid container width='100%'direction='column' p={4} backgroundColor='white' boxShadow='rgba(50, 50, 93, 0.25) 0px 2px 8px -3px' gap={3}>
         <Grid container direction='row' width='100%' justifyContent='space-between'>
-          <Typography variant='p' fontWeight={200}>Código de inmueble: {id}</Typography>
+          <Typography variant='h5'>Código de inmueble: {id}</Typography>
           <Button variant="outlined" size="small" onClick={() => router.push(`/contacto?c=alquilar&id=${id}`)}>Contactar</Button>
         </Grid>
 
@@ -48,9 +48,11 @@ const DescripcionImagen = ({ id, inmueble }) => {
       <Grid container direction='column' p={2} backgroundColor='white' boxShadow='rgba(50, 50, 93, 0.25) 0px 2px 8px -3px'>
         <Typography variant='h4' fontWeight={600}>Ubicación</Typography>
         <Typography variant='p' fontWeight={400} mt={1}>{inmueble?.direccion}</Typography>
+        {/* 
         <Grid mt={2} p={2} border={`3px solid ${theme.palette.primary.main}`} >
-         <Maps {...inmueble?.direccionGeolocalizacion} />
-        </Grid>
+           <Maps {...inmueble?.direccionGeolocalizacion} />
+        </Grid> 
+        */}
       </Grid>
     </>
   )

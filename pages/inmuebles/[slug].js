@@ -1,30 +1,34 @@
+import { useRouter } from 'next/router';
 import { MainLayout } from '../../layout';
 import queryInmueble from '../../graphql/tienda.gql';
 import fetchAPI from '../../squidexConectData';
-import { BannerTienda, Inmueble, Ordenamientos, Paginado } from '../../components/tienda';
+import { BannerTienda, Inmueble, FiltrosSegunTransaccion, Ordenamientos, Paginado } from '../../components/tienda';
 import { Grid } from '@mui/material';
 
 
 
 
 const Tienda = ({ inmuebles=[] }) => {
-  
+
+  const { query } = useRouter()
+
+
   return (
     <MainLayout title='TIENDA'>
     <BannerTienda />
     <Grid container justifyContent="space-between" pt={10}>
         
-      <Grid item xs={12} sm={2.5} minHeight={{ xs: "3rem", sm: "8rem" }} backgroundColor='white' height='max-content' boxShadow={{xs:'none', sm:`rgba(0, 0, 0, 0.24) 0px 3px 8px`}}>
-          {/* <Filtros /> */}
+      <Grid item xs={12} sm={2.5} minHeight={{ xs: "3rem", sm: "8rem" }} backgroundColor='white' height='max-content' boxShadow={{xs:'none', sm:`rgba(0, 0, 0, 0.24) 0px 3px 8px`}} p='1rem'>
+         <FiltrosSegunTransaccion />
       </Grid>
 
       <Grid item xs={12} sm={8.5}>
         {/* <Grid container width='100%' alignItems='center' justifyContent={{ xs: "center", sm: "space-between" }} gap={{ xs: 3, sm: 0 }}>
-            <Ordenamientos />
-            <Paginado />
-        </Grid> */}
-
-        <Grid item mt="2rem">
+              <Ordenamientos />
+              <Paginado />
+            </Grid> 
+        */}
+        <Grid item>
             <Inmueble total={inmuebles?.total} items={inmuebles?.items} />
         </Grid>
       </Grid>
@@ -52,9 +56,21 @@ export async function getStaticPaths() {
 
 
 
-export async function getStaticProps({params}) {
+export async function getStaticProps({ params }) {
 
-  const data = await fetchAPI(queryInmueble)
+  let filter = ""
+
+  if(params?.slug === 'comprar'){
+
+    filter = "data/tipoTransaccionVenta/iv eq true"
+
+  }else if(params?.slug ==='alquiler'){
+
+    filter = "data/tipoTransaccionAlquiler/iv eq true"
+
+  }
+
+  const data = await fetchAPI(queryInmueble(filter))
 
   return {
     props: {

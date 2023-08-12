@@ -15,7 +15,6 @@ const Detalle = ({ inmueble }) => {
   const router = useRouter()
 
   let tipoTransaccion = ""
-
   flatData?.tipoTransaccionAlquiler ? tipoTransaccion='alquilar' : tipoTransaccion='comprar'
 
   return (

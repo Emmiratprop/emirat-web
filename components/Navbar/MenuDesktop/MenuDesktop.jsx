@@ -11,8 +11,6 @@ const MenuDesktop = () => {
  const { pathname, route } = useRouter()
  const { palette } = useTheme()
 
- console.log(route)
-
  return (
   <Grid container direction='row' justifyContent='end' gap={2}>
     {item.map( item => (

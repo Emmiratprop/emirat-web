@@ -16,7 +16,7 @@ const Inmueble = ({ total, items }) => {
   <Grid container direction='column' gap={4} mt={2}>
 
   { (total != 0) && items?.map( p => (
-    <Grid container key={p?.id} direction={{xs:'column', sm:'row'}} width='95%' height={{xs:'15rem', sm:'18rem'}} justifyContent={{xs:'center', sm:'space-between'}} 
+    <Grid container key={p?.id} direction={{xs:'column', sm:'row'}} width='95%' height={{xs:'15rem', sm:'19rem'}} justifyContent={{xs:'center', sm:'space-between'}} 
       alignItems='center' backgroundColor='white' boxShadow={{xs:'none', sm:`rgba(0, 0, 0, 0.24) 0px 3px 8px`}}>
 
       <Grid container width={{xs:'100%', sm:'45%'}} height={{xs:'15rem', sm:'100%'}} justifyContent='center'>

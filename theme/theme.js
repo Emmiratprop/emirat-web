@@ -40,7 +40,7 @@ const theme = createTheme({
     },
     h5:{
       fontFamily: 'Montserrat',
-      fontWeight:  200,
+      fontWeight:  300,
       fontSize: '15px'
     },
     p:{
