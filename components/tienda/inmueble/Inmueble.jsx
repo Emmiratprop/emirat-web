@@ -26,8 +26,8 @@ const Inmueble = ({ total, items }) => {
       <Grid container direction='column' width={{xs:'90%', sm:'55%'}} height={{xs:'',sm:'100%'}} p={2}>
         <Grid container width={{xs:'100%', sm:'100%'}} direction='column' p={2} gap={{xs:3,sm:1}}>
         <Grid container width='100%' direction={{xs:'column', sm:'row'}} alignItems='center' justifyContent='space-between'>
-          <TypographyPrecio>$ {p?.flatData.precio} {p?.flatData.moneda}</TypographyPrecio>
-          <Grid alignItems='center' justifyContent='center'>
+          <TypographyPrecio onClick={() => router.push(`/detalle/${p?.id}`)} style={{cursor:'pointer'}}>$ {p?.flatData.precio} {p?.flatData.moneda}</TypographyPrecio>
+          <Grid alignItems='center' justifyContent='center' onClick={() => router.push(`/detalle/${p?.id}`)} style={{cursor:'pointer'}}>
           { p?.flatData.tipoTransaccionAlquiler && <TypographyTransaccion>ALQUILER</TypographyTransaccion> }
           { p?.flatData.tipoTransaccionVenta && <TypographyTransaccion>VENTA</TypographyTransaccion> }
           </Grid>
