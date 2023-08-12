@@ -19,11 +19,11 @@ const Detalle = ({ inmueble }) => {
 
   return (
     <MainLayout>
-    <Grid container width='100%' maxHeight='max-content' height={{xs:'160rem', sm:'max-content'}} direction='column' mt={`${heightViews}rem`} px={{xs:0, sm:10}}>
+    <Grid container width='100%' maxHeight='max-content' height='max-content' direction='column' mt={`${heightViews}rem`} px={{xs:0, sm:10}}>
 
-      <Grid container width='100%' h='max-content' display='flex' flexDirection={{xs:'column', sm:'row'}} justifyContent='center' alignContent='center' gap={{xs:6, sm:8}}>
+      <Grid container width='100%' h='max-content' direction='row' justifyContent='center' alignContent='center' gap={{xs:2, sm:8}}>
         <TypographyTitulo alignContent='center'>{flatData?.nombre}</TypographyTitulo>
-        <Grid display='flex' flexDirection='row' alignItems='center'>
+        <Grid direction='row' alignItems='center' mt='1rem'>
           <IconButton><CircleIcon sx={{ color: flatData?.estado === 'Disponible' ? '#2FBF01' : '#bf5001', fontSize:'12px'}}/></IconButton>
           <Typography variant='p'>{flatData?.estado}</Typography>
         </Grid>

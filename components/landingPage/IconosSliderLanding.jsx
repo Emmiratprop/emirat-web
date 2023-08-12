@@ -10,7 +10,7 @@ import Link from "next/link";
 const IconosSliderLanding = () => {
   return (
     <Grid container width='100%' minHeight='20rem' justifyContent='center' p={8}>
-    <Grid container width='100%' direction={{xs:'column', sm: 'row'}}  justifyContent='space-around' alignItems='center' gap={2} >
+    <Grid container width='100%' direction={{xs:'column', sm: 'row'}}  justifyContent='space-around' alignItems='center' gap={{ xs:6, sm:2 }} >
 
       <GridIcon>
        <Link href='/inmuebles/comprar' passHref><LinkStyle><HomeIcon sx={{fontSize:'45px'}}/></LinkStyle></Link>
