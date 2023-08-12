@@ -11,19 +11,19 @@ const Inmueble = ({ total, items }) => {
   
  return (
   <>
-  <Typography variant="h4" fontWeight={600}>{total} Inmuebles totales</Typography>
+  <Typography variant="h4" fontWeight={600} textAlign={{xs:'center', sm:'start'}} mb={{xs:'2rem',sm:'1rem'}}>{total} Inmuebles totales</Typography>
 
   <Grid container direction='column' gap={4} mt={2}>
 
   { (total != 0) && items?.map( p => (
-    <Grid container key={p?.id} direction={{xs:'column', sm:'row'}} width='95%' height={{xs:'15rem', sm:'19rem'}} justifyContent={{xs:'center', sm:'space-between'}} 
+    <Grid container key={p?.id} direction={{xs:'column', sm:'row'}} width='95%' height={{xs:'max-content', sm:'19rem'}} justifyContent={{xs:'start', sm:'space-between'}} 
       alignItems='center' backgroundColor='white' boxShadow={{xs:'none', sm:`rgba(0, 0, 0, 0.24) 0px 3px 8px`}}>
 
       <Grid container width={{xs:'100%', sm:'45%'}} height={{xs:'15rem', sm:'100%'}} justifyContent='center'>
         <Carousell {...p?.flatData} id={p?.id} cantidadImagDesktop={1}/>
       </Grid>
 
-      <Grid container direction='column' width={{xs:'90%', sm:'55%'}} height='100%' p={2}>
+      <Grid container direction='column' width={{xs:'90%', sm:'55%'}} height={{xs:'',sm:'100%'}} p={2}>
         <Grid container width={{xs:'100%', sm:'100%'}} direction='column' p={2} gap={{xs:3,sm:1}}>
         <Grid container width='100%' direction={{xs:'column', sm:'row'}} alignItems='center' justifyContent='space-between'>
           <TypographyPrecio>$ {p?.flatData.precio} {p?.flatData.moneda}</TypographyPrecio>

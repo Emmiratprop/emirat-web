@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import { MainLayout } from '../../layout';
 import queryInmueble from '../../graphql/tienda.gql';
 import fetchAPI from '../../squidexConectData';
@@ -6,19 +5,14 @@ import { BannerTienda, Inmueble, FiltrosSegunTransaccion, Ordenamientos, Paginad
 import { Grid } from '@mui/material';
 
 
-
-
 const Tienda = ({ inmuebles=[] }) => {
-
-  const { query } = useRouter()
-
 
   return (
     <MainLayout title='TIENDA'>
     <BannerTienda />
-    <Grid container justifyContent="space-between" pt={10}>
+    <Grid container justifyContent="space-between" pt={{xs:4, sm:10}}>
         
-      <Grid item xs={12} sm={2.5} minHeight={{ xs: "3rem", sm: "8rem" }} backgroundColor='white' height='max-content' boxShadow={{xs:'none', sm:`rgba(0, 0, 0, 0.24) 0px 3px 8px`}} p='1rem'>
+      <Grid item xs={12} sm={2.5} minHeight={{ xs: "3rem", sm: "8rem" }} backgroundColor='white' height='max-content' boxShadow={{xs:'none', sm:`rgba(0, 0, 0, 0.24) 0px 3px 8px`}} p='1rem' mb={{xs:'2rem',sm:0}}>
          <FiltrosSegunTransaccion />
       </Grid>
 
@@ -28,6 +22,7 @@ const Tienda = ({ inmuebles=[] }) => {
               <Paginado />
             </Grid> 
         */}
+
         <Grid item>
             <Inmueble total={inmuebles?.total} items={inmuebles?.items} />
         </Grid>
