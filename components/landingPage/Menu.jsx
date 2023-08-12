@@ -9,13 +9,13 @@ const Menu = () => {
     <Grid container position='absolute' top={{xs:'86%', sm:'80%'}} right={{xs:'5%', sm:'23%'}} direction='row' width={{xs:'90%',sm:'55%'}} justifyContent='space-around' height={{xs:'20%', sm:'30%'}}
      boxShadow='rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;' zIndex={200} backgroundColor='#FFFFFF' gap={1} 
     >
-        <Link href='tienda/alquiler' passHref>
+        <Link href='inmuebles/alquiler' passHref>
           <LinkStyle>ALQUILER</LinkStyle>
         </Link>
 
         <GridBorder />
 
-        <Link href='tienda/comprar' passHref>
+        <Link href='inmuebles/comprar' passHref>
           <LinkStyle>COMPRAR</LinkStyle>
         </Link>
 

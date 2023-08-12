@@ -1,7 +1,4 @@
-nhaimport { useState } from 'react';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
-import Carousell from '../../components/detalle/Carousel';
 import DescripcionImagen from '../../components/detalle/DescripcionImagen';
 import MainLayout, { heightViews } from '../../layout/MainLayout';
 import queryInmueble from '../../graphql/detalle.gql';
@@ -9,22 +6,17 @@ import fetchAPI from '../../squidexConectData';
 import { styled } from '@mui/material/styles';
 import CircleIcon from '@mui/icons-material/Circle';
 import { Button, Grid, IconButton, Typography } from '@mui/material'
-
-
+import EmblaCarousel from '../../components/detalle/EmblaCarousel';
 
 
 const Detalle = ({ inmueble }) => {
 
   const { id, flatData } = inmueble
-
   const router = useRouter()
 
-  const [imagenSeleccionada, setimagenSeleccionada] = useState("")
+  let tipoTransaccion = ""
 
-  const onClickImagenSeleccionada = (event, e) => {
-    // console.log(event.target.value)
-    // console.log(e)
-  }
+  flatData?.tipoTransaccionAlquiler ? tipoTransaccion='alquilar' : tipoTransaccion='comprar'
 
   return (
     <MainLayout>
@@ -39,18 +31,12 @@ const Detalle = ({ inmueble }) => {
       </Grid>
 
       <Grid container direction='column' width='100%' height='100%' justifyContent='center' alignItems='center'>
-        <Grid container width={{xs:'100%', sm:'50%'}} height={{xs:'50%',sm:'25rem'}} justifyContent='center' alignItems='center'>
-          <Image src={flatData?.imagenes[2]?.url} alt='imagen' width={700} height={400} />
-        </Grid>
-
-        <Grid container direction='row' width={{xs:'100%', sm:'90%'}} height='15rem' justifyContent='center' alignItems='center'>
-          <Carousell {...flatData} cantidadImagDesktop={5} onClickImagenSeleccionada={onClickImagenSeleccionada} />
-        </Grid>
+       <EmblaCarousel imagenesProp={flatData}/>
       </Grid>
 
       <DescripcionImagen id={id} inmueble={flatData}/>
 
-      <Button variant="contained" size="large" onClick={() => router.push(`/contacto?c=alquilar&id=${id}`)}>Contactar</Button>
+      <Button variant="contained" size="large" onClick={() => router.push(`/contacto?c=${tipoTransaccion}&id=${id}`)}>Contactar</Button>
 
     </Grid>
     </MainLayout>

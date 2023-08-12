@@ -7,7 +7,7 @@ import imagen1 from '../public/publicidadLandingPage/publicidad1.jpg'
 import imagen2 from '../public/publicidadLandingPage/publicidad2.jpg'
 
 
-export default function Home({posts}) {
+export default function Home() {
 
   return (
     <MainLayout title='EMIRAT PROPIEDADES'> 
@@ -28,11 +28,12 @@ export default function Home({posts}) {
 
 
 export async function getStaticProps() {
+
   const data = await fetchAPI(query)
 
   return {
     props: {
-      posts: data.queryInmueblesContents,
+      
     },
   };
 }

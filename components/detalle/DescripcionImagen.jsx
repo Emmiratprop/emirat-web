@@ -17,8 +17,8 @@ const DescripcionImagen = ({ id, inmueble }) => {
           <TypographyTransaccion>{inmueble?.tipoTransaccionInmuebleAlquiler? 'ALQUILER' : 'VENTA'}</TypographyTransaccion>
         </Grid>
         <Grid container direction='row' justifyContent='space-between' alignItems='center' borderLeft={`3px solid ${theme.palette.secondary.main}`}>
-          <TypographyPrecio variant='h2' pl={2}>{inmueble?.precioInmueble}  {inmueble?.moneda}</TypographyPrecio>
-          <Typography variant='h4' fontWeight={500}>{inmueble?.direccionInmueble}</Typography>
+          <TypographyPrecio variant='h2' pl={2}>{inmueble?.precio}  {inmueble?.moneda}</TypographyPrecio>
+          <Typography variant='h4' fontWeight={500}>{inmueble?.direccion}</Typography>
         </Grid>
         <Grid container display='flex' flexWrap='wrap' gap={5}> 
          <IconosItems {...inmueble}/>
@@ -33,7 +33,7 @@ const DescripcionImagen = ({ id, inmueble }) => {
 
         <Grid>
           <Typography variant='h4'>Descripción</Typography>
-          <Typography variant='p'>{inmueble?.descipcionInmueble}</Typography>
+          <Typography variant='p'>{inmueble?.descipcion}</Typography>
         </Grid>
         
         <Grid border='1px solid #dfdede'></Grid>

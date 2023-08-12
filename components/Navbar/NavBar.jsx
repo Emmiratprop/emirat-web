@@ -27,8 +27,6 @@ const NavBar = () => {
   };
 
 
-
-
   return (
    <Grid container sx={{ width: '100%', minHeight:`${heightNavbar}rem`, height:'max-content'}} justifyContent='center' alignItems='center' 
     component='header' style={menuStyles} px={4} py={2}>

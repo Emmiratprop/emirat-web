@@ -1,0 +1,15 @@
+
+  .embla-thumbs__slide__button {
+    -webkit-appearance: none;
+    background-color: transparent;
+    touch-action: manipulation;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    opacity: 1;
+    transition: opacity 0.2s;
+  }

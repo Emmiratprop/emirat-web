@@ -5,7 +5,6 @@ import { styled } from '@mui/material/styles';
 import { useRouter } from "next/router";
 
 
-
 const Inmueble = ({ total, items }) => {
 
   const router = useRouter()
@@ -41,7 +40,7 @@ const Inmueble = ({ total, items }) => {
           <Grid container width='100%' direction={{xs:'column', sm:'row'}} justifyContent='space-between'> 
             <Grid item w='50%'><IconosItems {...p?.flatData} /></Grid>
             <Grid item w='30%' alignSelf={{xs:'center', sm:'end'}} mt={{xs:'1rem', sm:0}}>
-              <Button variant="contained" size="large" onClick={() => router.push('/contacto')}>Contactar</Button>
+              <Button variant="contained" size="large" onClick={() => router.push(`/contacto?c=${p?.flatData.tipoTransaccionAlquiler?'alquilar':'comprar'}&id=${p?.id}`)}>Contactar</Button>
             </Grid>
           </Grid>
         </Grid>

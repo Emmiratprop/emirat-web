@@ -1,10 +1,9 @@
 import { useRef, useState } from "react";
-import { useForm, useQueryParams } from "../../Hook"
+import { useForm } from "../../Hook"
 import { validacionFormulario } from "../../functions/validacionFormulario";
 import emailjs from "@emailjs/browser";
 import { Alert, Button, FormHelperText, Grid, TextField, Typography } from "@mui/material"
-
-
+import { useRouter } from "next/router";
 
 let formData = {
     user_name: '',
@@ -14,12 +13,10 @@ let formData = {
   }
 
 
-
-
+  
 const FormContact = () => {
 
-  // const query = useQueryParams()
-
+  const { query } = useRouter()
   const form = useRef();
 
   const [alertSucces, setAlertSucces] = useState(true);
@@ -31,8 +28,12 @@ const FormContact = () => {
   const onSubmit = (event) => {
     event.preventDefault();
 
+    if( query?.id ){
+      form.current.message.value = `Propiedad codigo: ""${query?.id}"" ---> Transaccion tipo: ""${query?.c}""  ${message}`
+    }
+
     emailjs
-    .sendForm( process.env.NEXT_PUBLIC_SERVICE_ID, process.env.NEXT_PUBLIC_TEMPLATE_ID , form.current, process.env.NEXT_PUBLIC_USER_ID)
+    .sendForm( process.env.NEXT_PUBLIC_SERVICE_ID, process.env.NEXT_PUBLIC_TEMPLATE_ID , form.current, process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY)
     .then(
       (result) => {
         setAlertSucces(false);
@@ -40,6 +41,7 @@ const FormContact = () => {
       },
       (error) => {
         setAlertError(false);
+        console.log('Error onSubmit:', error)
       }
     );
    }
@@ -52,7 +54,7 @@ return (
     <Typography variant="p" textAlign='center'>Completá el formulario para comunicarte con nosotros. ¡Te contactaremos a la brevedad!</Typography>
     <Grid container mt='1rem' gap={1} component='form' p={3} onSubmit={onSubmit} ref={form}>
 
-      <Typography textAlign='center'>Uds está averiguando por la propiedad codigo: 'aca va el id' </Typography>
+      {query?.id && <Typography textAlign='center'>Uds está averiguando por la propiedad codigo: '{query?.id}' </Typography>}
 
       <TextField label='Nombre y Apellido' fullWidth value={user_name} name='user_name' onChange={onInputChange} />
       {errorFormValid.user_name && <FormHelperText error>{errorFormValid.user_name}</FormHelperText>}

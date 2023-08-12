@@ -13,17 +13,17 @@ const IconosSliderLanding = () => {
     <Grid container width='100%' direction={{xs:'column', sm: 'row'}}  justifyContent='space-around' alignItems='center' gap={2} >
 
       <GridIcon>
-       <Link href='/tienda/comprar' passHref><LinkStyle><HomeIcon sx={{fontSize:'45px'}}/></LinkStyle></Link>
+       <Link href='/inmuebles/comprar' passHref><LinkStyle><HomeIcon sx={{fontSize:'45px'}}/></LinkStyle></Link>
        <TypographyStyle>INMUEBLES</TypographyStyle>
       </GridIcon>
 
       <GridIcon>
-      <Link href='/tienda/alquiler' passHref><LinkStyle><MapsHomeWorkIcon sx={{fontSize:'45px'}}/></LinkStyle></Link>
+      <Link href='/inmuebles/alquiler' passHref><LinkStyle><MapsHomeWorkIcon sx={{fontSize:'45px'}}/></LinkStyle></Link>
        <TypographyStyle>ALQUILER</TypographyStyle>
       </GridIcon>
 
       <GridIcon>
-      <Link href='/tienda/comprar' passHref><LinkStyle><AttachMoneyIcon sx={{fontSize:'45px'}}/></LinkStyle></Link>
+      <Link href='/inmuebles/comprar' passHref><LinkStyle><AttachMoneyIcon sx={{fontSize:'45px'}}/></LinkStyle></Link>
        <TypographyStyle>COMPRAR</TypographyStyle>
       </GridIcon>
 

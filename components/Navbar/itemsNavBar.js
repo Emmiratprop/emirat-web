@@ -6,14 +6,14 @@ export const item = [
     },
     {
         'nombre': 'Inmuebles',
-        'link': '/tienda/comprar',
+        'link': '/inmuebles/comprar',
         'subItems': [{
             'nombre': 'Alquiler',
-            'link': '/tienda/alquiler',
+            'link': '/inmuebles/alquiler',
         },
         {
             'nombre': 'Comprar',
-            'link': '/tienda/comprar',
+            'link': '/inmuebles/comprar',
         }]
     },
     {

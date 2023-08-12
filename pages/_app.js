@@ -1,6 +1,7 @@
 import { AppTheme } from "../theme";
 import { Box, CssBaseline } from '@mui/material';
 import Head from 'next/head';
+import '../index.css'
 
 
 const MyApp = ({ Component, pageProps }) => {

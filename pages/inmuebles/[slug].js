@@ -7,7 +7,7 @@ import { Grid } from '@mui/material';
 
 
 
-const Tienda = ({ inmuebles }) => {
+const Tienda = ({ inmuebles=[] }) => {
   
   return (
     <MainLayout title='TIENDA'>

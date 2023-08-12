@@ -7,7 +7,7 @@ export const validacionFormulario = (input) => {
     let errores = {};
   
     if((!input.user_name)) errores.user_name = "Completar el campo nombre";
-    if((input.user_name.length > 20)) errores.user_name = "El nombre no puede ser tan largo"
+    if((input.user_name.length > 30)) errores.user_name = "El nombre no puede ser tan largo"
 
     if(!input.user_email){
       errores.user_email = "Completar el campo email";

@@ -1,5 +1,6 @@
 const query = `
 {
+  
     queryInmueblesContents{
     id
     flatData{
@@ -8,7 +9,7 @@ const query = `
     }
    }
 
-   }
+}
 `
 
 export default query;
