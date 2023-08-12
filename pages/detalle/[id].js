@@ -19,7 +19,7 @@ const Detalle = ({ inmueble }) => {
 
   return (
     <MainLayout>
-    <Grid container width='100%' maxHeight='max-content' height='max-content' direction='column' mt={`${heightViews}rem`} px={{xs:0, sm:10}}>
+    <Grid container width='100%' maxHeight='max-content' height='max-content' direction='column' mt={`${heightViews}rem`} px={{xs:0, sm:10}} gap={4}>
 
       <Grid container width='100%' h='max-content' direction='row' justifyContent='center' alignContent='center' gap={{xs:2, sm:8}}>
         <TypographyTitulo alignContent='center'>{flatData?.nombre}</TypographyTitulo>
@@ -29,7 +29,7 @@ const Detalle = ({ inmueble }) => {
         </Grid>
       </Grid>
 
-      <Grid container direction='column' width='100%' height='100%' justifyContent='center' alignItems='center'>
+      <Grid container direction='column' width='100%' mt='2rem' height='35rem' justifyContent='center' alignItems='center'>
        <EmblaCarousel imagenesProp={flatData}/>
       </Grid>
 

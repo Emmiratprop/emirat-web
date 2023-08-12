@@ -37,25 +37,25 @@ const EmblaCarousel = ({imagenesProp}) => {
   }, [emblaMainApi, onSelect])
 
   return (
-    <Stack width='100%' p='1.6rem' alignItems='center' justifyContent='center'>
+    <Stack width='100%' h='100%' direction='column' alignItems='center' justifyContent='center' gap={4}>
 
-      <Stack width='80%' overflow='hidden' ref={emblaMainRef}>
+      <Stack width={{xs:'90%', sm:'50%'}} overflow='hidden' ref={emblaMainRef}>
         <Stack width='100%' direction='row' ml={-1} style={{ touchAction:'pan-y', backfaceVisibility:'hidden' }}>
           {imagenes?.map( ( item, index) => (
             <Stack key={index+1} flex='0 0 100%'>
-              <Image src={item?.url} alt="imagen" width='100%' height={500}/>
+              <Image src={item?.url} alt="imagen" width={400} height={400} />
             </Stack>
           ))}
         </Stack>
       </Stack>
 
-      <Stack width='80%' mt='2rem'>
+      <Stack width={{xs:'90%', sm:'50%'}} mt='2rem'>
         <Stack width='100%' overflow='hidden' ref={emblaThumbsRef}>
           <Stack width='100%' direction='row' ml={-1}>
             {imagenes?.map( (item,index) => (
-              <Stack key={index+2} flex='0 0 15%' pl='0.8rem' style={{ opacity: index === selectedIndex ? 1 : 0.5 }}>
+              <Stack key={index+2} pl='0.8rem' style={{ opacity: index === selectedIndex ? 1 : 0.5 }}>
                 <Stack onClick={() => onThumbClick(index)} className="embla-thumbs__slide__button">
-                  <Image src={item?.url} alt="imagen" width='100%' height={150} />
+                  <Image src={item?.url} alt="imagen" width='100%' height={100} />
                 </Stack>
               </Stack>
             )
@@ -68,5 +68,4 @@ const EmblaCarousel = ({imagenesProp}) => {
   )
 }
 
-export default EmblaCarousel
-
+export default EmblaCarousel;

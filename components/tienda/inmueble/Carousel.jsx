@@ -7,8 +7,6 @@ import { styled } from '@mui/material/styles';
 
 
 
-
-
 const Carousell = ({ id, imagenes, cantidadImagDesktop }) => {
 
     const theme = useTheme();
@@ -23,7 +21,6 @@ const Carousell = ({ id, imagenes, cantidadImagDesktop }) => {
     const siguiente = () => setSelectedIndex((selectedIndex + cantidadSegunResponsive) % imagenes.length);
 
     const slicedImagen = imagenes?.slice(selectedIndex, selectedIndex + cantidadSegunResponsive);
-
 
     return (
 
