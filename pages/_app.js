@@ -18,15 +18,9 @@ const MyApp = ({ Component, pageProps }) => {
                         <meta name="mobile-web-app-capable" content="yes" />
                         <meta property="og:type" content="website" />
                         <meta charSet="utf-8" />
-                        <meta name="author" content="AWG" />
-                        <meta name="copyright" content="AWG" />
+                        <meta name="author" content="Florencia O" />
                         <meta name="keywords" content="emirat, emiratpropiedades, propiedades, inmuebles, alquiler, venta " />
                         <meta name="robots" content="index, nofollow, translate" />
-                        <link
-                            rel="stylesheet"
-                            href="https://fonts.googleapis.com/icon?family=Material+Icons"
-                        />
-
                     </Head>
                     <Component {...pageProps} />
                 </Box>

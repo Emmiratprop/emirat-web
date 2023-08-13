@@ -12,7 +12,7 @@ import DesignServicesIcon from '@mui/icons-material/DesignServices';
 
 const Administracion = () => {
   return (
-    <MainLayout Title='ADMINISTRACION'>
+    <MainLayout title='EMIRAT PROPEIDADES - ADMINISTRACION'>
         <Grid container width='90%' height='max-content' minHeight='25rem' mt={`${heightViews}rem`} justifyContent='center' alignItems='center' gap={5}>
           <Typography variant="h1" textAlign='center'>ADMINISTRACIÓN Y GESTION DE INMUEBLES</Typography>
           <Grid container direction={{xs:'column', sm:'row'}} flexWrap='wrap' width='100%' height='max-content' gap={4} justifyContent='space-around'> 

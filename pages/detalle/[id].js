@@ -18,7 +18,7 @@ const Detalle = ({ inmueble }) => {
   flatData?.tipoTransaccionAlquiler ? tipoTransaccion='alquilar' : tipoTransaccion='comprar'
 
   return (
-    <MainLayout>
+    <MainLayout title="EMIRAT PROPEIDADES - DETALLE">
     <Grid container width='100%' maxHeight='max-content' height='max-content' direction='column' mt={`${heightViews}rem`} px={{xs:0, sm:10}} gap={4}>
 
       <Grid container width='100%' h='max-content' direction='row' justifyContent='center' alignContent='center' gap={{xs:2, sm:8}}>

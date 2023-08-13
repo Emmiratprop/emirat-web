@@ -7,7 +7,7 @@ import { Grid } from "@mui/material"
 
 const Contacto = () => {
   return (
-    <MainLayout Title='CONTACTO'>
+    <MainLayout title='EMIRAT PROPEIDADES - CONTACTO'>
       <Grid container width='100%' mt={`${heightViews}rem`} height={{xs:'55rem',sm:'max-content'}}>
 
       <Grid item xs={12} sm={6} order={{xs:1, sm:0}} height='max-content'>
