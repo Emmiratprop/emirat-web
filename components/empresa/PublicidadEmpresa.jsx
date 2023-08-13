@@ -1,5 +1,6 @@
 import { styled } from '@mui/material/styles';
 import { useTheme, useMediaQuery, Grid, Typography  } from '@mui/material';
+import Image from 'next/image';
 
 
 const PublicidadEmpresa = ({direccion, imagen, titulo, texto}) => {
@@ -12,14 +13,16 @@ const PublicidadEmpresa = ({direccion, imagen, titulo, texto}) => {
       
       <Grid container direction='column' width={{xs:'100%', sm:'40%'}} height={{xs:'100%', sm:'80%'}} alignItems='center'justifyContent='center' order={direccion==='izquierda' ? 0 : 1}>
         {!isSmallScreen && <GridCuadrado container width='20rem' height='100%'></GridCuadrado>}
-        <Grid container zIndex={20} width='100%' height='60%' mt={{xs:0,sm:8}}>
-            <img src={imagen.src} alt='fotos' style={{width:'100%', height:'100%', objectFit:'cover', objectPosition: 'center center'}}/>
+        <Grid container zIndex={20} width='100%' height='90%'>
+            <Image src={imagen.src} alt='fotos' width={500} height={450} priority/>
         </Grid>
       </Grid>
 
-      <Grid container direction='column' width={{xs:'100%', sm:'50%'}} height='100%' p={4} gap={3} order={ isSmallScreen ? 1 : direccion==='izquierda' ? 1 : 0}>
-        <TypographyTitulo color={{xs:`${theme.palette.secondary.main}`, sm:'black'}} textAlign={{xs:'center', sm:'start'}}>{titulo}</TypographyTitulo>
-        <TypographyStyle  color={{xs:'#d5d5d5', sm:'black'}}>{texto}</TypographyStyle>
+      <Grid container direction='column' width={{xs:'100%', sm:'50%'}} height='100%' p={4} justifyContent='start' order={ isSmallScreen ? 1 : direccion==='izquierda' ? 1 : 0}>
+       <Grid container width='100%' height='60%'>
+          <TypographyTitulo color={{xs:`${theme.palette.secondary.main}`, sm:'black'}} textAlign={{xs:'center', sm:'start'}}>{titulo}</TypographyTitulo>
+          <TypographyStyle  color={{xs:'#d5d5d5', sm:'black'}}>{texto}</TypographyStyle>
+        </Grid>
       </Grid>
 
     </Grid>

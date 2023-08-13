@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Grid, IconButton, Typography, useTheme, useMediaQuery, Link as LinkMUI } from "@mui/material"
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
+import Image from "next/image";
 
 
 
@@ -20,7 +21,7 @@ const Publicidad = ({lugar, imagen="", titulo, textoBoton, texto , link}) => {
    { lugar !== 'centro' &&
     <Grid container direction={{xs:'column', sm:'row'}} width={{xs:'90%', sm:'100%'}} height={{xs:'min-content', sm:'30rem'}} justifyContent='space-around' alignItems='center' backgroundColor={theme.palette.primary.main} gap={2} p={3}>
         <Grid item xs={2} sm={4} order={ isSmallScreen ? 1 : lugar === 'izquierda' ? 1 : 0} height='90%'>
-           <img src={imagen.src} alt={'imagen de publicidad'} style={{width:'100%', height:'100%', objectFit:'cover', objectPosition: 'center center' }} />
+           <Image src={imagen.src} alt='imagen de publicidad' width={400} height={400} priority/>
         </Grid>
         <Grid item xs={2} sm={6}>
             <Typography variant='h2' color='white'>{titulo}</Typography>
