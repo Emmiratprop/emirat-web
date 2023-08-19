@@ -25,7 +25,7 @@ const FiltrosSegunTransaccion = () => {
         <FormGroup>
             <Typography variant='h3' mb='1rem'>Tipo de transacción:</Typography>
             <FormControlLabel control={<Checkbox />} label="Alquiler" value='alquiler' onChange={onCheckboxChange} checked={selectedValue === 'alquiler'}/>
-            <FormControlLabel control={<Checkbox />} label="Comprar" value='comprar' onChange={onCheckboxChange} checked={selectedValue === 'comprar'}/>
+            <FormControlLabel control={<Checkbox />} label="Venta" value='comprar' onChange={onCheckboxChange} checked={selectedValue === 'comprar'}/>
         </FormGroup>
     </Grid>
   )

@@ -13,22 +13,7 @@ const style = {
 }
 
 
-
-const elementos = [
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCukprG1CL0fwu5f1XI1OKggmoiHsb48R2gw&usqp=CAU", //1
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCukprG1CL0fwu5f1XI1OKggmoiHsb48R2gw&usqp=CAU", //2
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCukprG1CL0fwu5f1XI1OKggmoiHsb48R2gw&usqp=CAU", //3
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuMLRmTKnrOLmTDNv1tbZvWpj0LnqSj5fazA&usqp=CAU", //4
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuMLRmTKnrOLmTDNv1tbZvWpj0LnqSj5fazA&usqp=CAU", //5
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCukprG1CL0fwu5f1XI1OKggmoiHsb48R2gw&usqp=CAU", //6
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCukprG1CL0fwu5f1XI1OKggmoiHsb48R2gw&usqp=CAU", //7
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCukprG1CL0fwu5f1XI1OKggmoiHsb48R2gw&usqp=CAU", //8
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCukprG1CL0fwu5f1XI1OKggmoiHsb48R2gw&usqp=CAU" //9
-  ]
-
-
-
-const Carousell = () => {
+const Carousell = ({ destacados }) => {
 
     const theme = useTheme();
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm')); 
@@ -37,9 +22,9 @@ const Carousell = () => {
 
     const cantidadSegunResponsive = isSmallScreen? 1 : 3
 
-    const anterior = () => setSelectedIndex((selectedIndex - cantidadSegunResponsive + elementos.length) % elementos.length)
-    const siguiente = () => setSelectedIndex((selectedIndex + cantidadSegunResponsive) % elementos.length);
-    const slicedElements = elementos?.slice(selectedIndex, selectedIndex + cantidadSegunResponsive);
+    const anterior = () => setSelectedIndex((selectedIndex - cantidadSegunResponsive + destacados.length) % destacados.length)
+    const siguiente = () => setSelectedIndex((selectedIndex + cantidadSegunResponsive) % destacados.length);
+    const slicedElements = destacados?.slice(selectedIndex, selectedIndex + cantidadSegunResponsive);
 
 
     return (
@@ -55,10 +40,11 @@ const Carousell = () => {
         <Grid container width={{xs:'60%', md:'80%'}} height='100%' direction='row' alignItems='center' justifyContent='space-around'>
         {slicedElements?.map( (e, index) => ( 
             <Grid item key={index} width={{xs:'100%', sm:'30%'}} height='100%' backgroundColor='white'>
-                <img src={e} alt={e} style={style} />
+                <img src={e.flatData?.imagenes[0].url} alt={e} style={style} />
                 <Grid container direction='column' alignItems='center' gap={1}>
-                  <TypographyNombre variant='p'>VENTA</TypographyNombre>
-                  <TypographyPrecio variant='p'>$4545 USD</TypographyPrecio>
+                {e.flatData.tipoTransaccionVenta && <TypographyNombre variant='p'>VENTA</TypographyNombre>}
+                {e.flatData.tipoTransaccionAlquiler && <TypographyNombre variant='p'>ALQUILER</TypographyNombre>}
+                  <TypographyPrecio variant='p'>${e.flatData?.precio} {""} {e.flatData?.moneda}</TypographyPrecio>
                   <Button variant='outlined' color='primary' size='small'>Ver Mas</Button>
                 </Grid>
             </Grid>
@@ -79,7 +65,7 @@ export default Carousell;
 
 
 const TypographyNombre = styled(Typography)(({ theme }) => ({
-  color: theme.palette.primary.main,
+  color: theme.palette.secondary.main,
   fontFamily: theme.typography.h2.fontFamily,
   fontSize: '15px',
   fontWeight: 600,
@@ -90,7 +76,7 @@ const TypographyNombre = styled(Typography)(({ theme }) => ({
 
 
 const TypographyPrecio = styled(Typography)(({ theme }) => ({
-  color: theme.palette.secondary.main,
+  color: theme.palette.primary.main,
   fontFamily: theme.typography.h2.fontFamily,
   fontSize: '15px',
   fontWeight: 600,

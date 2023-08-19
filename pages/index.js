@@ -1,13 +1,13 @@
 import fetchAPI from "../squidexConectData";
 import MainLayout from "../layout/MainLayout";
 import { Banner, Menu, Publicidad, Carousel, IconosSliderLanding } from "../components/landingPage";
-import query from "../graphql/landingPage.gql";
+import queryLanding from "../graphql/landingPage.gql";
 import { Grid } from "@mui/material";
 import imagen1 from '../public/publicidadLandingPage/publicidad1.jpg'
 import imagen2 from '../public/publicidadLandingPage/publicidad2.jpg'
 
 
-export default function Home() {
+export default function Home({ destacados }) {
 
   return (
     <MainLayout title='EMIRAT PROPIEDADES'> 
@@ -17,7 +17,7 @@ export default function Home() {
         <Publicidad lugar='centro' link='empresa'/>
         <Publicidad lugar='izquierda' imagen={imagen2} titulo='Servicio Innovador' textoBoton='Ver nuestros inmuebles' link='tienda/todos' 
           texto={"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat ipsum, libero autem, earum, temporibus voluptas voluptatem similique officiis unde aut corrupti fuga?. Aspernatur eum doloremque, incidunt ipsum nemo est fugiat!Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem incidunt porro, nemo iste quia quaerat laudantium quod reiciendis, similique sed modi velit mollitia impedit labore voluptas, officia veniam asperiores officiis. orem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam minima voluptates mollitia placeat ab, quae expedita dolore repellat sapiente libero nfugit, laborum earum, dicta dignissimos. Quaerat odio dignissimos voluptas"}/>
-        <Carousel />  
+        <Carousel destacados={destacados} />  
         <Publicidad lugar='derecha' imagen={imagen1} titulo='Administración' textoBoton='Nosotros te administramos tu propiedad' link='administracion'
           texto="Abarcan una amplia gama de soluciones para el propietario o desarrollador de inmuebles, así como para los ocupantes de los mismos." />
         <IconosSliderLanding />
@@ -27,13 +27,15 @@ export default function Home() {
 }
 
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 
-  const data = await fetchAPI(query)
+  const data = await fetchAPI(queryLanding("data/destacado/iv eq true"))
 
   return {
     props: {
-      
+      destacados: data.queryInmueblesContents
     },
   };
 }
+
+

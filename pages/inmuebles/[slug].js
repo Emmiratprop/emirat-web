@@ -37,21 +37,8 @@ export default Tienda;
 
 
 
-export async function getStaticPaths() {
 
-  const tipoTransaccion = ['todos','alquiler','comprar']
-
-  return {
-    paths: tipoTransaccion?.map( tipo => ({
-      params: { slug: tipo }
-    })),
-    fallback: false
-  };
-}
-
-
-
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
 
   let filter = ""
 

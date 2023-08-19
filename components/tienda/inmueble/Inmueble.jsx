@@ -32,9 +32,9 @@ const Inmueble = ({ total, items }) => {
           { p?.flatData.tipoTransaccionVenta && <TypographyTransaccion>VENTA</TypographyTransaccion> }
           </Grid>
         </Grid>
-        <Grid container direction='column'>
+        <Grid container direction='column' gap={0.5}>
           <Typography variant='p' fontWeight={700}>{p?.flatData.direccion}</Typography>
-          <Typography>{p?.flatData.nombre}</Typography>
+          <Typography color='#CDCDCD'>{p?.flatData.nombre.toLowerCase()}</Typography>
         </Grid>
 
           <Grid container width='100%' direction={{xs:'column', sm:'row'}} justifyContent='space-between'> 
