@@ -12,23 +12,23 @@ const IconosSliderLanding = () => {
     <Grid container width='100%' minHeight='20rem' justifyContent='center' p={8}>
     <Grid container width='100%' direction={{xs:'column', sm: 'row'}}  justifyContent='space-around' alignItems='center' gap={{ xs:6, sm:2 }} >
 
-      <GridIcon>
+      <GridIcon gap={1}>
        <Link href='/inmuebles/comprar' passHref><LinkStyle><HomeIcon sx={{fontSize:'45px'}}/></LinkStyle></Link>
        <TypographyStyle>INMUEBLES</TypographyStyle>
       </GridIcon>
 
-      <GridIcon>
+      <GridIcon gap={1}>
       <Link href='/inmuebles/alquiler' passHref><LinkStyle><MapsHomeWorkIcon sx={{fontSize:'45px'}}/></LinkStyle></Link>
        <TypographyStyle>ALQUILER</TypographyStyle>
       </GridIcon>
 
-      <GridIcon>
+      <GridIcon gap={1}>
       <Link href='/inmuebles/comprar' passHref><LinkStyle><AttachMoneyIcon sx={{fontSize:'45px'}}/></LinkStyle></Link>
        <TypographyStyle>COMPRAR</TypographyStyle>
       </GridIcon>
 
 
-      <GridIcon>
+      <GridIcon gap={1}>
       <Link href='/administracion' passHref><LinkStyle><KeyIcon sx={{fontSize:'45px'}}/></LinkStyle></Link>
        <TypographyStyle>ADMINISTRACION</TypographyStyle>
       </GridIcon>
@@ -54,6 +54,10 @@ const LinkStyle = styled(LinkMUI)(({ theme }) => ({
     BorderRadidus: '90px',
     color: theme.palette.primary.main,
     padding:'10px',
+    '&:hover':{
+      color: theme.palette.secondary.main,
+      border: `2px solid ${theme.palette.secondary.main}`,
+    }
   }));
   
 
@@ -64,6 +68,9 @@ const TypographyStyle = styled(Typography)(({ theme }) => ({
     fontWeight: 400,
     fontSize: '18px',
     color: theme.palette.primary.main,
+    '&:hover':{
+      color: theme.palette.secondary.main
+    }
   }));
 
 
