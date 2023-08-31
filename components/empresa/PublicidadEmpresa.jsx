@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { useTheme, useMediaQuery, Grid, Typography  } from '@mui/material';
+import { useTheme, useMediaQuery, Grid, Typography } from '@mui/material';
 import Image from 'next/image';
 
 
